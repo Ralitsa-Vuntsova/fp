@@ -1,0 +1,5 @@
+(define (upper-triangle matrix)
+  (if (null? matrix)
+      '()
+      (cons (car matrix) (upper-triangle (map cdr (cdr matrix))))
+  ))

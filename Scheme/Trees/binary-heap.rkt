@@ -1,0 +1,12 @@
+(load "./basics.rkt")
+
+(define (binary-heap? tree)
+  (or (empty-tree? tree)
+      (and (or (empty-tree? (left-tree tree))
+               (> (root-tree tree)
+                  (root-tree (left-tree tree))))
+           (or (empty-tree? (right-tree tree))
+               (< (root-tree tree)
+                  (root-tree (right-tree tree))))
+           (binary-heap? (left-tree tree))
+           (binary-heap? (right-tree tree)))))

@@ -1,0 +1,8 @@
+(define (deep-map f l)
+  (cond ((null? l) '())
+        ((list? (car l)) (cons (deep-map f (car l))
+                               (deep-map f (cdr l))))
+        (else (cons (f (car l))
+                    (deep-map f (cdr l))))
+  )
+)

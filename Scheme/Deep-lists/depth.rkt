@@ -1,0 +1,6 @@
+(define (depth l)
+  (cond ((null? l) 1)
+        ((list? (car l)) (max (+ 1 (depth (car l))) (depth (cdr l))))
+        (else (depth (cdr l)))
+  )
+)
